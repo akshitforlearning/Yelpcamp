@@ -5,7 +5,6 @@ if (process.env.NODE_ENV !== "production") {
 
 const express = require('express');
 const app = express();
-const port = 3000;
 const path = require('path');
 const methodOverride = require('method-override');
 const ejsMate = require('ejs-mate');
@@ -159,6 +158,7 @@ app.use((err, req, res, next) => {
     res.status(status).render('ErrorPage/error.ejs', { err });
 });
 
+const port = process.env.PORT || 3000;
 app.listen(port, () => {
     console.log(`Listening on port: ${port}`);
 });
